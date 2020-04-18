@@ -1,8 +1,7 @@
 <template lang="pug">
-  div.container(id='app')
-    NavigationBar.sidenav(@open-menu='offCanvasMenu'
-      :class="{ 'sidenav_open': isSelect }")
-    router-view.view
+  div.container-custom(id='app')
+    NavigationBar.nav-position(@open-menu='offView')
+    router-view(:class="{ 'view': isSelect }")
 </template>
 <script>
 import NavigationBar from '@/components/NavigationBar.vue';
@@ -17,8 +16,8 @@ export default {
     };
   },
   methods: {
-    offCanvasMenu(value) {
-      this.isSelect = value;
+    offView(val) {
+      this.isSelect = !val;
     },
   },
 };
@@ -26,6 +25,9 @@ export default {
 <style lang="scss">
 @import './assets/styles/main.scss';
 
-.view {
+@media only screen and (max-width: 500px) {
+  .view {
+    display: none;
+  }
 }
 </style>

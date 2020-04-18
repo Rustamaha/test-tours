@@ -42,7 +42,7 @@ export default {
     width: 160px;
     height: 50px;
     bottom: 54px;
-    background: $yellow;
+    background: $yellow-color;
     display: flex;
     display: -webkit-flex;
     align-items: center;
@@ -55,7 +55,7 @@ export default {
     font-weight: 900;
     font-size: 1.12rem;
     line-height: 1.22em;
-    color: $black;
+    color: $black-color;
   }
 
   &__country {
@@ -72,7 +72,7 @@ export default {
     font-weight: 700;
     font-size: 1.125rem;
     line-height: 1.22em;
-    color: $black;
+    color: $black-color;
   }
 
   &__route {
@@ -87,7 +87,7 @@ export default {
     padding-top: 1.66em;
     font-size: 0.56rem;
     line-height: 1.22em;
-    color: $black;
+    color: $black-color;
   }
 
   &__params-position {
@@ -100,7 +100,7 @@ export default {
   &__params {
     width: 130px;
     height: 17px;
-    background: $red;
+    background: $red-color;
     border-radius: 3px;
     display: flex;
     display: -webkit-flex;
@@ -110,7 +110,7 @@ export default {
   }
 
   &__params-text {
-    color: $white;
+    color: $white-color;
   }
 }
 

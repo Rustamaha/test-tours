@@ -1,9 +1,9 @@
 <template lang="pug">
-  div.select(:class="{ 'select_open': isSelect }")
-    button.select__button(@click='click')
+  div.select(:class="{ 'select_open': isOpened }")
+    button.select__button(@click='open')
       | Тип путешествия
       span.select__arrow
-    div.select__list(v-if='isSelect')
+    div.select__list(v-if='isOpened')
       ul.select__ul(v-for='(type, ind) in types' :key='ind')
         li.select__li
           |{{ type }}
@@ -17,7 +17,7 @@ export default {
   name: 'TypeOfTravelSelectList',
   data() {
     return {
-      isSelect: false,
+      isOpened: false,
     };
   },
   created() {
@@ -27,13 +27,12 @@ export default {
     window.removeEventListener('click', this.close);
   },
   methods: {
-    click() {
-      this.isSelect = !this.isSelect;
+    open() {
+      this.isOpened = !this.isOpened;
     },
     close(e) {
-      console.log(this.$el, this.$el.contains(e.target));
       if (!this.$el.contains(e.target)) {
-        this.isSelect = false;
+        this.isOpened = false;
       }
     },
   },
@@ -46,15 +45,16 @@ export default {
 </script>
 <style scoped lang="scss">
 .select {
-  width: 280px;
+  width: 100%;
+  max-width: 280px;
   height: 49px;
-  background: $white;
+  background: $white-color;
   border-radius: 29.5px;
   font-style: normal;
   font-weight: normal;
   font-size: 0.75rem;
   line-height: 1.16em;
-  color: $black;
+  color: $black-color;
 
   &_open {
     width: 283px;
@@ -62,11 +62,12 @@ export default {
     position: responsive;
     margin-bottom: -332px;
     z-index: 1;
+    transition: 0.5s;
   }
 
   &__button {
     width: 100%;
-    background: $white;
+    background: $white-color;
     padding: 0 29px 0 30px;
     border-radius: 29.5px;
     height: 49px;
@@ -84,7 +85,7 @@ export default {
     position: relative;
 
     &:before {
-      border: solid $black;
+      border: solid $black-color;
       content: '';
       position: absolute;
       width: 6px;
@@ -102,9 +103,8 @@ export default {
   }
 
   &__list {
-    //width: 220px;
     height: 330px;
-    color: $black;
+    color: $black-color;
     font-size: 0.875rem;
     line-height: 2.14em;
     padding: 0 40px 0 37px;
@@ -127,6 +127,25 @@ export default {
       height: 28px;
       background: $lightGray;
       border-radius: 15px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .select {
+    height: 40px;
+
+    &_open {
+      width: 283px;
+      height: 381px;
+      position: responsive;
+      margin-bottom: -332px;
+      z-index: 1;
+      transition: 0.5s;
+    }
+
+    &__button {
+      height: 40px;
     }
   }
 }

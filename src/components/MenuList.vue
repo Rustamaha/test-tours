@@ -1,8 +1,10 @@
 <template lang="pug">
   div.menu
-    CountriesSelectList
+    div.menu__selects-position
+      CountriesSelectList
+      DatePicker.menu__datepicker-position
     TypeOfTravelSelectList.menu__types-position
-    button.menu__button_search НАЙТИ
+    button.menu__button.menu__button_search НАЙТИ
     div.menu__links
       router-link.menu__link(to='/trips') ПУТЕШЕСТВИЯ
       router-link.menu__link(to='/about') О НАС
@@ -15,9 +17,7 @@
 </template>
 
 <script>
-import { ru } from 'vuejs-datepicker/dist/locale';
-import Datepicker from 'vuejs-datepicker';
-
+import DatePicker from '@/components/DatePicker.vue';
 import TypeOfTravelSelectList from '@/components/TypeOfTravelSelectList.vue';
 import CountriesSelectList from '@/components/CountriesSelectList.vue';
 // @ is an alias to /src
@@ -25,18 +25,13 @@ import CountriesSelectList from '@/components/CountriesSelectList.vue';
 export default {
   name: 'MenuList',
   components: {
-    Datepicker,
     CountriesSelectList,
     TypeOfTravelSelectList,
+    DatePicker,
   },
   data() {
     return {
       isSelect: false,
-      ru,
-      highlighted: {
-        to: new Date(2020, 4, 5), // Highlight all dates up to specific date
-        from: new Date(2020, 4, 26),
-      },
     };
   },
 };
@@ -47,7 +42,13 @@ export default {
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
-  //justify-content: center;
+
+  &__selects-position {
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+  }
 
   &__types-position {
     margin-top: 1.125em;
@@ -68,7 +69,7 @@ export default {
     line-height: 1.22em;
     text-align: center;
     letter-spacing: 0.1em;
-    color: $black;
+    color: $black-color;
     font-weight: 900;
     text-decoration: none;
   }
@@ -84,7 +85,7 @@ export default {
     line-height: 1.2em;
     text-align: center;
     letter-spacing: 0.1em;
-    color: $black;
+    color: $black-color;
     padding-bottom: 1em;
     display: flex;
     display: -webkit-flex;
@@ -94,25 +95,102 @@ export default {
   }
 
   &__button {
-    width: 280px;
+    width: 100%;
+    max-width: 280px;
     height: 49px;
-    border: 1px solid $black;
-    box-sizing: border-box;
+    padding: 0;
+    background: $yellow-color;
     border-style: none;
     border-radius: 29.5px;
     font-size: 0.75rem;
     line-height: 1.16em;
     text-align: center;
-    color: $black;
-    //padding-bottom: 3.43em;
-    //display: flex;
-    //display: -webkit-flex;
-    //align-items: center;
-    //-webkit-align-items: center;
-    //justify-content: center;
+    color: $black-color;
+    position: relative;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    opacity: 1;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 101%;
+      max-width: 280px;
+      height: 49px;
+      border-radius: 29.5px;
+      margin: -1px;
+      background: $black-color;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
 
     &_search {
+      margin-top: 1.125em;
       display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .menu {
+
+    &__selects-position {
+      display: block;
+    }
+
+    &__datepicker-position {
+      margin-top: 1.125em;
+    }
+
+    &__links {
+      padding-bottom: 40em;
+    }
+
+    &__phone {
+      font-size: 1.2rem;
+    }
+
+    &__button {
+
+      &_search {
+        display: block;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 562px) {
+  .menu {
+
+    &__links {
+      padding-bottom: 30em;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .menu {
+
+    &__datepicker-position,
+    &__types-position {
+      //margin-top: 0.875em;
+    }
+
+    &__links {
+
+      padding: 1.66em 0 5.77em 0;
+    }
+
+    &__button {
+
+      &:before {
+        width: 100.8%;
+      }
+    }
+
+    &__contact {
+      padding-bottom: 2.75em;
     }
   }
 }

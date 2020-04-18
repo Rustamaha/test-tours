@@ -1,6 +1,7 @@
 <template lang="pug">
   div.menu
-    input.menu__checkbox.menu__checkbox_hidden(type="checkbox" id="checkbox1"
+    input.menu__checkbox.menu__checkbox_hidden(type="checkbox"
+      id="checkbox1"
       :checked='checked'
       @change="$emit('input', $event.target.checked)")
     label(for="checkbox1")
@@ -15,10 +16,10 @@
 
 export default {
   name: 'MenuBurger',
-  components: {
-  },
   props: {
     checked: Boolean,
+  },
+  methods: {
   },
 };
 </script>
@@ -31,7 +32,7 @@ export default {
     padding: 0;
     width: 30px;
     height: 5px;
-    background-color: $black;
+    background-color: $black-color;
     display: block;
     transition: all 0.5s ease-in-out;
     position: absolute;
@@ -62,7 +63,7 @@ export default {
     }
 
     &:checked + label >.menu__hamburger1 > .menu__bar {
-      background-color: $white;
+      background-color: $white-color;
       //right: 20px;
     }
 

@@ -36,7 +36,7 @@ export default {
 .checkbox {
   font-size: 0.625rem;
   line-height: 1.2em;
-  color: $black;
+  color: $black-color;
   text-transform: uppercase;
   font-weight: 700;
 
@@ -68,14 +68,14 @@ export default {
     cursor: pointer;
     width: 40px;
     height: 40px;
-    background: $white;
+    background: $white-color;
     border: 1px solid $lightGray;
     box-sizing: border-box;
     border-radius: 3px;
     left: 0;
 
     &_error {
-      border: 1px solid $red;
+      border: 1px solid $red-color;
     }
 
     &:after {
@@ -85,7 +85,7 @@ export default {
       height: 0;
       border-style: solid;
       border-width: 7px 8.5px 0 8.5px;
-      border-color: $white transparent transparent transparent;
+      border-color: $white-color transparent transparent transparent;
       left: 10px;
       top: 13px;
     }
@@ -97,7 +97,7 @@ export default {
       height: 0;
       border-style: solid;
       border-width: 7px 8.5px 0 8.5px;
-      border-color: $yellow transparent transparent transparent;
+      border-color: $yellow-color transparent transparent transparent;
       left: 10px;
       top: 15px;
       display: none;
@@ -114,7 +114,7 @@ export default {
         height: 0;
         border-style: solid;
         border-width: 4px 4.5px 0 4.5px;
-        border-color: $white transparent transparent transparent;
+        border-color: $white-color transparent transparent transparent;
         left: 2px;
         top: 3.5px;
       }
@@ -126,7 +126,7 @@ export default {
         height: 0;
         border-style: solid;
         border-width: 4px 4.5px 0 4.5px;
-        border-color: $yellow transparent transparent transparent;
+        border-color: $yellow-color transparent transparent transparent;
         left: 2px;
         top: 4.5px;
         display: none;

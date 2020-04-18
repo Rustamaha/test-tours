@@ -1,9 +1,9 @@
 <template lang="pug">
-  div.select(:class="{ 'select_open': isSelect }")
+  div.select(:class="{ 'select_open': isOpened }")
     button.select__button(@click='click')
       | Страны
       span.select__arrow
-    div.select__scrollbar(v-if='isSelect')
+    div.select__scrollbar(v-if='isOpened')
       div(v-for='(country, ind) in countries' :key='ind')
         div.select__scrollbar-name {{ country.name }}
           ul.select__ul
@@ -17,7 +17,7 @@ export default {
   name: 'CountriesSelectList',
   data() {
     return {
-      isSelect: false,
+      isOpened: false,
     };
   },
   computed: {
@@ -33,12 +33,12 @@ export default {
   },
   methods: {
     click() {
-      this.isSelect = !this.isSelect;
+      this.isOpened = !this.isOpened;
     },
     close(e) {
-      console.log(this.$el, this.$el.contains(e.target));
+      // console.log(this.$el, this.$el.contains(e.target));
       if (!this.$el.contains(e.target)) {
-        this.isSelect = false;
+        this.isOpened = false;
       }
     },
   },
@@ -46,29 +46,30 @@ export default {
 </script>
 <style scoped lang="scss">
 .select {
-  width: 280px;
+  width: 53.57%;
   font-style: normal;
   font-weight: normal;
   font-size: 0.75rem;
   line-height: 1.16em;
-  color: $black;
+  color: $black-color;
   height: 49px;
-  background: $white;
+  background: $white-color;
   border-radius: 29.5px;
 
   &_open {
     width: 283px;
     height: 400px;
-    position: responsive;
+    position: absolute;
     margin-bottom: -351px;
     z-index: 1;
+    transition: 0.5s;
   }
 
   &__button {
     border-style: none;
     width: 100%;
     height: 49px;
-    background: $white;
+    background: $white-color;
     border-radius: 29.5px;
     padding: 0 29px 0 30px;
     display: flex;
@@ -84,7 +85,7 @@ export default {
     position: relative;
 
     &:before {
-      border: solid $black;
+      border: solid $black-color;
       content: '';
       position: absolute;
       width: 6px;
@@ -95,9 +96,19 @@ export default {
       -webkit-transform: rotate(45deg);
     }
 
-    &:after {
-      transform: rotate(-45deg);
-      -webkit-transform: rotate(-45deg);
+    &_up {
+
+      &:before {
+        border: solid $black-color;
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        position: absolute;
+        border-width: 0 1px 1px 0;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
     }
   }
 
@@ -105,7 +116,7 @@ export default {
     width: 221px;
     height: 330px;
     overflow-y: scroll;
-    color: $black;
+    color: $black-color;
     padding-left: 30px;
   }
 
@@ -131,7 +142,7 @@ export default {
       font-size: 0.625rem;
       line-height: 3em;
       text-transform: uppercase;
-      color: $yellow;
+      color: $yellow-color;
     }
 
     &:hover,
@@ -145,15 +156,42 @@ export default {
 
   &__scrollbar::-webkit-scrollbar {
     width: 2px;
+    cursor: pointer;
   }
 
   &__scrollbar::-webkit-scrollbar-track {
-    background-color: $white;
+    background-color: $white-color;
   }
 
   &__scrollbar::-webkit-scrollbar-thumb {
     border-radius: 1px;
     background-color: $lightGray;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .select {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .select {
+    height: 40px;
+
+    &_open {
+      width: 283px;
+      height: 400px;
+      position: absolute;
+      margin-bottom: -351px;
+      z-index: 1;
+      transition: 0.5s;
+    }
+
+    &__button {
+      height: 40px;
+    }
   }
 }
 </style>

@@ -174,7 +174,7 @@ export default {
 .form-group {
   font-size: 0.625rem;
   line-height: 1.2em;
-  color: $black;
+  color: $black-color;
   padding-bottom: 7em;
 
   &__title {
@@ -185,7 +185,7 @@ export default {
   }
 
   &__asterisk {
-    color: $red;
+    color: $red-color;
   }
 
   &__text {
@@ -246,7 +246,7 @@ export default {
     text-transform: uppercase;
     font-weight: 500;
     padding-bottom: 0.5em;
-    border-bottom: 2px solid $black;
+    border-bottom: 2px solid $black-color;
   }
 
   &__label {
@@ -260,15 +260,15 @@ export default {
     padding-left: 3em;
     width: 100%;
     height: 50px;
-    background: $white;
+    background: $white-color;
     border: 1px solid $veryLightGray;
     box-sizing: border-box;
     border-radius: 3px;
-    color: $black;
+    color: $black-color;
 
     &_error {
-      border: 1px solid $red;
-      color: $red;
+      border: 1px solid $red-color;
+      color: $red-color;
     }
   }
 
@@ -282,11 +282,11 @@ export default {
   &__button {
     width: 280px;
     height: 49px;
-    background: $yellow;
+    background: $yellow-color;
     border-radius: 29.5px;
     font-size: 0.75rem;
     line-height: 1.16em;
-    color: $black;
+    color: $black-color;
     border-style: none;
     display: flex;
     display: -webkit-flex;
@@ -314,7 +314,7 @@ export default {
       border-style: solid;
       -webkit-transform: rotate(360deg);
       border-width: 3.5px 0 3.5px 3px;
-      border-color: transparent transparent transparent $yellow;
+      border-color: transparent transparent transparent $yellow-color;
     }
 
     &:before {
@@ -325,18 +325,18 @@ export default {
       border-style: solid;
       -webkit-transform: rotate(360deg);
       border-width: 3.5px 0 3.5px 3px;
-      border-color: transparent transparent transparent $black;
+      border-color: transparent transparent transparent $black-color;
       left: 1px;
     }
   }
 
   &__error {
-    border: 1px solid $red;
+    border: 1px solid $red-color;
   }
 
   &__error-message {
     padding-top: 9px;
-    color: $red;
+    color: $red-color;
     position: relative;
     margin-bottom: -28px;
   }

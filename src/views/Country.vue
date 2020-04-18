@@ -31,8 +31,8 @@ export default {
 .country {
   width: 76.18%;
   padding: 2.875em 11.91% 10.25em 11.91%;
-  color: $black;
-  background: $white;
+  color: $black-color;
+  background: $white-color;
 
   &__h1 {
     text-transform: uppercase;

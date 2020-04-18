@@ -1,9 +1,9 @@
 <template lang="pug">
-  div.nav-bar(:class="{ 'nav-bar_open': isSelect }")
-    div.nav-bar__burger-position
-      MenuBurger.nav-bar__burger(@click='offCanvasMenu(isSelect)'
-        v-model='isSelect' :checked='isSelect')
-    div.nav-bar__menu-position(v-if='isSelect')
+  div.nav-bar(:class="{ 'nav-bar_open': isOpened }")
+    div.nav-bar__burger-position(@click='offView')
+      MenuBurger.nav-bar__burger(v-model='isOpened'
+        :checked='isOpened')
+    div.nav-bar__menu-position(v-if='isOpened')
       MenuList
 </template>
 
@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      isSelect: false,
+      isOpened: false,
     };
   },
   created() {
@@ -30,13 +30,12 @@ export default {
     window.removeEventListener('click', this.close);
   },
   methods: {
-    offCanvasMenu(value) {
-      this.$emit('open-menu', value);
+    offView() {
+      this.$emit('open-menu', this.isOpened);
     },
     close(e) {
-      console.log(this.$el, this.$el.contains(e.target));
       if (!this.$el.contains(e.target)) {
-        this.isSelect = false;
+        this.isOpened = false;
       }
     },
   },
@@ -44,11 +43,10 @@ export default {
 </script>
 <style scoped lang="scss">
 .nav-bar {
-  background: $yellow;
+  background: $yellow-color;
   height: 4.375em;
 
   &_open {
-    height: auto;
     height: 1366px; /* 100% Full-height */
     position: absolute; /* Stay in place */
     z-index: 1; /* Stay on top */
@@ -68,10 +66,44 @@ export default {
   &__menu-position {
     padding: 6.31em 24.52% 0 22.64%;
     width: 52.84%;
-    /*display: flex;
-    display: -webkit-flex;
-    flex-direction: column;
-    justify-content: center;*/
+    max-width: 280px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-bar {
+
+    &_open {
+      left: 30%;
+      width: 70%;
+    }
+  }
+}
+
+@media only screen and (max-width: 562px) {
+  .nav-bar {
+
+    &_open {
+      height: auto;
+      left: 20%;
+      width: 80%;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .nav-bar {
+
+    &_open {
+      height: auto;
+      left: 0;
+      width: 100%;
+    }
+
+    &__menu-position {
+      padding: 6.31em 9.4% 0 9.6%;
+      width: 81%;
+    }
   }
 }
 </style>
