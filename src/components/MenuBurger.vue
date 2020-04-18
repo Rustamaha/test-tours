@@ -12,7 +12,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 
 export default {
   name: 'MenuBurger',
@@ -64,7 +63,6 @@ export default {
 
     &:checked + label >.menu__hamburger1 > .menu__bar {
       background-color: $white-color;
-      //right: 20px;
     }
 
     &:checked + label >.menu__hamburger1 > .menu__bar_bar1 {

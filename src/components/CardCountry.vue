@@ -19,7 +19,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 
 export default {
   name: 'CardCountry',
@@ -115,6 +114,5 @@ export default {
 }
 
 @media only screen and (max-width: 500px) {
-
 }
 </style>

@@ -28,7 +28,6 @@
 
 <script>
 const weekDayNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
-// @ is an alias to /src
 const todayDate = new Date();
 const todayYear = todayDate.getFullYear();
 const todayMonth = todayDate.getMonth();

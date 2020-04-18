@@ -10,7 +10,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 
 export default {
   name: 'CustomCheckbox',
@@ -52,11 +51,6 @@ export default {
     position: absolute;
     z-index: -1;
     opacity: 0;
-    //margin: 10px 0 0 20px;
-
-    &:checked + .checkbox__checkmark:before {
-
-    }
 
     &:checked + .checkbox__checkmark:before {
       display: inline-block;

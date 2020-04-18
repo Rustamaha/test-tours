@@ -174,7 +174,7 @@ export default {
 
     &__datepicker-position,
     &__types-position {
-      //margin-top: 0.875em;
+      margin-top: 0.875em;
     }
 
     &__links {

@@ -12,7 +12,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 export default {
   name: 'CountriesSelectList',
   data() {
@@ -36,7 +35,6 @@ export default {
       this.isOpened = !this.isOpened;
     },
     close(e) {
-      // console.log(this.$el, this.$el.contains(e.target));
       if (!this.$el.contains(e.target)) {
         this.isOpened = false;
       }

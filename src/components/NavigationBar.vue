@@ -47,18 +47,17 @@ export default {
   height: 4.375em;
 
   &_open {
-    height: 1366px; /* 100% Full-height */
-    position: absolute; /* Stay in place */
-    z-index: 1; /* Stay on top */
+    height: 1366px;
+    position: absolute;
+    z-index: 1;
     top: 0;
     left: 48.2%;
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    transition: 0.5s;
     width: 51.75%;
     margin-bottom: -1262px;
   }
 
   &__burger-position {
-    //padding: 1.43em 11.91% 1.56em 88.09%;
     float: right;
     padding: 1.43em 1.43em 1.56em 0;
   }

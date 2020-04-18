@@ -101,7 +101,6 @@
 import { required, minLength, sameAs } from 'vuelidate/lib/validators';
 
 import CustomCheckbox from '@/components/CustomCheckbox.vue';
-// @ is an alias to /src
 
 export default {
   name: 'FormGroup',
@@ -301,7 +300,6 @@ export default {
 
   &__arrow {
     height: 10px;
-    //width: 10px;
     position: relative;
     padding-right: 2.5em;
     top: 2px;
